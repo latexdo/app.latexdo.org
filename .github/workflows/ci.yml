@@ -32,13 +32,53 @@ concurrency:
 
 jobs:
   validate:
-    name: validate / static downloads site
+    name: validate / static downloads and update site
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v6
+
       - uses: actions/setup-node@v6
         with:
           node-version: 22.17.0
-      - run: npm test
+
+      - name: Validate release dispatch metadata
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        shell: bash
+        env:
+          SOURCE_REPOSITORY: ${{ inputs.source_repository }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_RUN_URL: ${{ inputs.source_run_url }}
+        run: |
+          if [ -n "$SOURCE_REPOSITORY" ] && [ "$SOURCE_REPOSITORY" != "latexdo/latexdo" ]; then
+            echo "::error::Unexpected source repository: $SOURCE_REPOSITORY"
+            exit 1
+          fi
+
+          if [ -n "$SOURCE_SHA" ] && ! [[ "$SOURCE_SHA" =~ ^[a-f0-9]{40}$ ]]; then
+            echo "::error::source_sha must be a full lowercase Git SHA."
+            exit 1
+          fi
+
+          if [ -n "$SOURCE_RUN_ID" ] && ! [[ "$SOURCE_RUN_ID" =~ ^[0-9]+$ ]]; then
+            echo "::error::source_run_id must be numeric."
+            exit 1
+          fi
+
+          if [ -n "$SOURCE_RUN_URL" ] && ! [[ "$SOURCE_RUN_URL" =~ ^https://github\.com/latexdo/latexdo/actions/runs/[0-9]+$ ]]; then
+            echo "::error::source_run_url must point at a latexdo/latexdo Actions run."
+            exit 1
+          fi
+
+          {
+            echo "### app.latexdo.org validation"
+            echo
+            echo "- Source repository: ${SOURCE_REPOSITORY:-manual}"
+            echo "- Source SHA: ${SOURCE_SHA:-n/a}"
+            echo "- Source run: ${SOURCE_RUN_URL:-n/a}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate static downloads and update metadata
+        run: npm run ci

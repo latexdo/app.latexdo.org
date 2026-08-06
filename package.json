@@ -5,6 +5,7 @@
   "description": "Static download and update metadata site for the LatexDo desktop app.",
   "type": "module",
   "scripts": {
-    "test": "node scripts/validate-downloads-site.mjs"
+    "ci": "node scripts/validate-downloads-site.mjs",
+    "test": "npm run ci"
   }
 }

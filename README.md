@@ -29,7 +29,11 @@ The main website should link or redirect download/update traffic here instead of
 npm test
 ```
 
-The validator checks that required static files exist, JSON metadata is well formed, release manifests match checksums, and app/update URLs point at `app.latexdo.org`.
+The validator checks that required static files exist, JSON metadata is well formed, release manifests match checksums, app/update URLs point at `app.latexdo.org`, route/header config is present, `updates/latest.json` matches the newest release, schema-2 signed feeds verify against `update-public-key.pem`, and stale `latexdo.org/downloads` or `latexdo.org/updates` URLs cannot come back.
+
+## CI
+
+GitHub Actions runs `npm run ci` on pushes, pull requests, and workflow dispatches from `latexdo/latexdo`. The dispatch path validates the source repository, source SHA, source run ID, and source run URL before checking the static download/update metadata.
 
 ## Deploy
 
