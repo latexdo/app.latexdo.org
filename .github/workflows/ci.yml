@@ -1,0 +1,44 @@
+name: app-latexdo-org-ci
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      source_repository:
+        description: Source repository that requested validation.
+        required: false
+      source_sha:
+        description: Source commit that requested validation.
+        required: false
+      source_run_id:
+        description: Source workflow run id.
+        required: false
+      source_run_url:
+        description: Source workflow run URL.
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: app-latexdo-org-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate / static downloads site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22.17.0
+      - run: npm test

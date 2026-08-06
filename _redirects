@@ -1,0 +1,13 @@
+/ /downloads/ 302
+/latest /downloads/ 302
+/about https://latexdo.org/about/ 301
+/about/ https://latexdo.org/about/ 301
+/about/* https://latexdo.org/about/:splat 301
+/privacy.html https://latexdo.org/privacy.html 301
+/terms.html https://latexdo.org/terms.html 301
+/donations https://latexdo.org/donations/ 301
+/donations/ https://latexdo.org/donations/ 301
+/donations/* https://latexdo.org/donations/:splat 301
+/research https://latexdo.org/research/ 301
+/research/ https://latexdo.org/research/ 301
+/research/* https://latexdo.org/research/:splat 301

@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Download the latest LatexDo desktop installers from v0.1.0-build.114.1.c1b64bc9fe5b, or inspect every release tag published for macOS, Windows, and Linux."
+    />
+    <title>LatexDo Downloads</title>
+    <link rel="canonical" href="https://app.latexdo.org/downloads/" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="../" aria-label="LatexDo home">
+          <img src="../assets/icon.svg" alt="" width="36" height="36" />
+          <span>LatexDo</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          data-nav-toggle
+        >
+          <span></span>
+          <span></span>
+        </button>
+        <div id="nav-links" class="nav-links" data-nav-links>
+          <a href="../downloads/">Download</a>
+          <a class="nav-editor-link" href="https://editor.latexdo.org">Editor</a>
+          <a href="/research/ai/">AI</a>
+          <a href="https://docs.latexdo.org">Docs</a>
+          <a href="https://store.latexdo.org">Store</a>
+          <a class="nav-donate-link" href="../donations/">Donate</a>
+        </div>
+        <nav class="language-switcher header-language-switcher" aria-label="Languages" data-language-switcher="header">
+          <button class="language-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Languages, current language: English"><span class="language-globe" aria-hidden="true">🌐</span><span class="language-current">EN</span></button>
+          <ul class="language-list">
+            <li class="language-item"><a class="language-option" href="/" hreflang="en-US" lang="en-US" aria-current="true" aria-label="Switch to English"><span class="language-flag" aria-hidden="true">🇺🇸</span><span class="language-code">EN</span><span class="language-name">English</span></a></li>
+            <li class="language-item"><a class="language-option" href="/fr/" hreflang="fr-FR" lang="fr-FR" aria-label="Switch to Français"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="language-code">FR</span><span class="language-name">Français</span></a></li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+
+    <main class="downloads-page">
+      <section class="downloads-hero">
+        <p class="eyebrow">Direct downloads</p>
+        <h1>LatexDo Downloads</h1>
+        <p>Download the latest LatexDo desktop installers for macOS, Windows, and Linux.</p>
+        <p class="downloads-dev">Latest tag: <a href="v0.1.0-build.114.1.c1b64bc9fe5b/">v0.1.0-build.114.1.c1b64bc9fe5b</a>.</p>
+      </section>
+
+      <input class="dev-mode-input" type="checkbox" id="dev-mode-toggle" />
+      <label class="dev-mode-toggle" for="dev-mode-toggle">
+        Developer mode
+        <span class="dev-mode-switch" aria-hidden="true"></span>
+      </label>
+
+      <section class="download-platform-grid" aria-label="Selected LatexDo installers" aria-live="polite" data-release-downloads>
+
+          <article class="platform-download-card macos">
+            <div class="platform-card-top">
+              <span class="platform-logo-shell"><svg class="platform-logo" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M16.64 12.08c-.03-2.32 1.9-3.45 1.99-3.5-1.09-1.6-2.79-1.82-3.37-1.84-1.42-.15-2.8.85-3.52.85-.74 0-1.86-.83-3.06-.8-1.56.02-3.02.93-3.82 2.35-1.65 2.86-.42 7.06 1.16 9.37.79 1.13 1.71 2.39 2.92 2.35 1.18-.05 1.62-.75 3.04-.75 1.41 0 1.82.75 3.06.72 1.27-.02 2.06-1.14 2.82-2.28.91-1.3 1.27-2.58 1.29-2.65-.03-.01-2.49-.96-2.52-3.82ZM14.34 5.24c.64-.79 1.07-1.86.95-2.94-.92.04-2.07.63-2.74 1.39-.59.67-1.12 1.78-.98 2.81 1.04.08 2.1-.52 2.77-1.26Z" />
+    </svg></span>
+              <div>
+                <p class="eyebrow">macOS</p>
+                <h2>Apple Mac</h2>
+              </div>
+            </div>
+            <div class="mac-machine-picker" aria-label="macOS build choices">
+              <input class="mac-machine-input" type="radio" name="mac-machine" id="mac-machine-apple-silicon" checked />
+              <input class="mac-machine-input" type="radio" name="mac-machine" id="mac-machine-intel" />
+              <div class="mac-machine-tabs" aria-label="Mac chip">
+                <label for="mac-machine-apple-silicon">Apple Silicon</label>
+                <label for="mac-machine-intel">Intel</label>
+              </div>
+              <div class="mac-machine-downloads">
+<a class="download-option mac-machine-option arm64" href="https://github.com/latexdo/latexdo/releases/download/v0.1.0-build.114.1.c1b64bc9fe5b/LatexDo-macos-arm64.dmg" download>
+              <strong>Apple Silicon</strong>
+              <span>DMG installer</span>
+              <em>162.2 MB<span class="downloads-dev-link"> - SHA-256</span></em>
+            </a>
+<a class="download-option mac-machine-option x64" href="https://github.com/latexdo/latexdo/releases/download/v0.1.0-build.114.1.c1b64bc9fe5b/LatexDo-macos-x64.dmg" download>
+              <strong>Intel</strong>
+              <span>DMG installer</span>
+              <em>169.0 MB<span class="downloads-dev-link"> - SHA-256</span></em>
+            </a>
+              </div>
+            </div>
+          </article>
+          <article class="platform-download-card windows">
+            <div class="platform-card-top">
+              <span class="platform-logo-shell"><svg class="platform-logo" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 5.15 10.8 4v7.38H3V5.15Z" />
+      <path d="M12.15 3.82 21 2.5v8.88h-8.85V3.82Z" />
+      <path d="M3 12.62h7.8V20L3 18.85v-6.23Z" />
+      <path d="M12.15 12.62H21v8.88l-8.85-1.32v-7.56Z" />
+    </svg></span>
+              <div>
+                <p class="eyebrow">Windows</p>
+                <h2>Windows PC</h2>
+              </div>
+            </div>
+            <div class="download-variant-row" aria-label="Windows build choices">
+<a class="download-option" href="https://github.com/latexdo/latexdo/releases/download/v0.1.0-build.114.1.c1b64bc9fe5b/LatexDo-windows-x64.exe" download>
+              <strong>Windows x64</strong>
+              <span>EXE installer</span>
+              <em>131.6 MB<span class="downloads-dev-link"> - SHA-256</span></em>
+            </a>
+            </div>
+          </article>
+          <article class="platform-download-card linux">
+            <div class="platform-card-top">
+              <span class="platform-logo-shell"><img class="platform-logo linux-logo" src="../assets/linux-tux.png" alt="" width="36" height="43" /></span>
+              <div>
+                <p class="eyebrow">Linux</p>
+                <h2>Linux desktop</h2>
+              </div>
+            </div>
+            <div class="download-variant-row" aria-label="Linux build choices">
+<a class="download-option" href="https://github.com/latexdo/latexdo/releases/download/v0.1.0-build.114.1.c1b64bc9fe5b/LatexDo-linux-x64.AppImage" download>
+              <strong>Linux x64</strong>
+              <span>APPIMAGE installer</span>
+              <em>186.2 MB<span class="downloads-dev-link"> - SHA-256</span></em>
+            </a>
+            </div>
+          </article>
+      </section>
+
+      <section class="downloads-meta downloads-dev" aria-live="polite" data-release-meta>
+        <h2>Latest build information</h2>
+        <dl>
+          <div>
+            <dt>Version</dt>
+            <dd>0.1.0</dd>
+          </div>
+          <div>
+            <dt>Published</dt>
+            <dd>2026-07-15T06:33:15.185Z</dd>
+          </div>
+          <div>
+            <dt>Commit</dt>
+            <dd>c1b64bc9fe5b</dd>
+          </div>
+        </dl>
+        <p>
+          For automated checks, use <a href="manifest.json">manifest.json</a>,
+          <a href="releases.json">releases.json</a>, and
+          <a href="SHA256SUMS.txt">SHA256SUMS.txt</a>.
+        </p>
+      </section>
+
+        <section
+          class="downloads-releases downloads-dev"
+          data-release-switcher
+          data-releases-src="releases.json"
+          aria-labelledby="release-history-title"
+        >
+          <div class="release-heading">
+            <div>
+              <p class="eyebrow">Release groups</p>
+              <h2 id="release-history-title">All desktop releases</h2>
+            </div>
+            <div class="release-heading-actions">
+              <a class="button secondary" href="releases.json">JSON index</a>
+            </div>
+          </div>
+          <div class="release-groups" data-release-groups>
+          <details class="release-group">
+            <summary>
+              <span class="release-group-arrow" aria-hidden="true"></span>
+              <span class="release-group-title">
+                <strong>v0.1.0</strong>
+                <small>40 builds - latest series</small>
+              </span>
+            </summary>
+            <div class="release-list">
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.114.1.c1b64bc9fe5b/">v0.1.0-build.114.1.c1b64bc9fe5b</a></h3>
+                <p>Version 0.1.0 - Jul 15, 2026, 6:33 AM UTC - latest - c1b64bc9fe5b</p>
+              </div>
+              <nav aria-label="v0.1.0-build.114.1.c1b64bc9fe5b release links">
+                <a href="v0.1.0-build.114.1.c1b64bc9fe5b/">Downloads</a>
+                <a href="v0.1.0-build.114.1.c1b64bc9fe5b/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.114.1.c1b64bc9fe5b/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.114.1.c1b64bc9fe5b">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.113.1.b4f3a6ccfead/">v0.1.0-build.113.1.b4f3a6ccfead</a></h3>
+                <p>Version 0.1.0 - Jul 14, 2026, 10:47 PM UTC - b4f3a6ccfead</p>
+              </div>
+              <nav aria-label="v0.1.0-build.113.1.b4f3a6ccfead release links">
+                <a href="v0.1.0-build.113.1.b4f3a6ccfead/">Downloads</a>
+                <a href="v0.1.0-build.113.1.b4f3a6ccfead/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.113.1.b4f3a6ccfead/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.113.1.b4f3a6ccfead">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.111.1.bef5495afbad/">v0.1.0-build.111.1.bef5495afbad</a></h3>
+                <p>Version 0.1.0 - Jul 14, 2026, 10:10 PM UTC - bef5495afbad</p>
+              </div>
+              <nav aria-label="v0.1.0-build.111.1.bef5495afbad release links">
+                <a href="v0.1.0-build.111.1.bef5495afbad/">Downloads</a>
+                <a href="v0.1.0-build.111.1.bef5495afbad/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.111.1.bef5495afbad/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.111.1.bef5495afbad">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.110.1.4a27864b6b56/">v0.1.0-build.110.1.4a27864b6b56</a></h3>
+                <p>Version 0.1.0 - Jul 14, 2026, 9:52 PM UTC - 4a27864b6b56</p>
+              </div>
+              <nav aria-label="v0.1.0-build.110.1.4a27864b6b56 release links">
+                <a href="v0.1.0-build.110.1.4a27864b6b56/">Downloads</a>
+                <a href="v0.1.0-build.110.1.4a27864b6b56/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.110.1.4a27864b6b56/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.110.1.4a27864b6b56">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.109.1.36614a219657/">v0.1.0-build.109.1.36614a219657</a></h3>
+                <p>Version 0.1.0 - Jul 14, 2026, 7:00 PM UTC - 36614a219657</p>
+              </div>
+              <nav aria-label="v0.1.0-build.109.1.36614a219657 release links">
+                <a href="v0.1.0-build.109.1.36614a219657/">Downloads</a>
+                <a href="v0.1.0-build.109.1.36614a219657/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.109.1.36614a219657/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.109.1.36614a219657">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.108.1.7be28976954f/">v0.1.0-build.108.1.7be28976954f</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 7:46 PM UTC - 7be28976954f</p>
+              </div>
+              <nav aria-label="v0.1.0-build.108.1.7be28976954f release links">
+                <a href="v0.1.0-build.108.1.7be28976954f/">Downloads</a>
+                <a href="v0.1.0-build.108.1.7be28976954f/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.108.1.7be28976954f/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.108.1.7be28976954f">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.107.1.484ae4a05588/">v0.1.0-build.107.1.484ae4a05588</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 7:12 PM UTC - 484ae4a05588</p>
+              </div>
+              <nav aria-label="v0.1.0-build.107.1.484ae4a05588 release links">
+                <a href="v0.1.0-build.107.1.484ae4a05588/">Downloads</a>
+                <a href="v0.1.0-build.107.1.484ae4a05588/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.107.1.484ae4a05588/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.107.1.484ae4a05588">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.106.1.75872ddd9551/">v0.1.0-build.106.1.75872ddd9551</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 6:51 PM UTC - 75872ddd9551</p>
+              </div>
+              <nav aria-label="v0.1.0-build.106.1.75872ddd9551 release links">
+                <a href="v0.1.0-build.106.1.75872ddd9551/">Downloads</a>
+                <a href="v0.1.0-build.106.1.75872ddd9551/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.106.1.75872ddd9551/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.106.1.75872ddd9551">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.105.1.3993b7abac1b/">v0.1.0-build.105.1.3993b7abac1b</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 6:30 PM UTC - 3993b7abac1b</p>
+              </div>
+              <nav aria-label="v0.1.0-build.105.1.3993b7abac1b release links">
+                <a href="v0.1.0-build.105.1.3993b7abac1b/">Downloads</a>
+                <a href="v0.1.0-build.105.1.3993b7abac1b/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.105.1.3993b7abac1b/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.105.1.3993b7abac1b">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.104.1.413934a006bd/">v0.1.0-build.104.1.413934a006bd</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 6:01 PM UTC - 413934a006bd</p>
+              </div>
+              <nav aria-label="v0.1.0-build.104.1.413934a006bd release links">
+                <a href="v0.1.0-build.104.1.413934a006bd/">Downloads</a>
+                <a href="v0.1.0-build.104.1.413934a006bd/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.104.1.413934a006bd/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.104.1.413934a006bd">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.103.1.80acde0e7330/">v0.1.0-build.103.1.80acde0e7330</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 5:04 PM UTC - 80acde0e7330</p>
+              </div>
+              <nav aria-label="v0.1.0-build.103.1.80acde0e7330 release links">
+                <a href="v0.1.0-build.103.1.80acde0e7330/">Downloads</a>
+                <a href="v0.1.0-build.103.1.80acde0e7330/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.103.1.80acde0e7330/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.103.1.80acde0e7330">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.96.1.c0a4ec42daaf/">v0.1.0-build.96.1.c0a4ec42daaf</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 11:57 AM UTC - c0a4ec42daaf</p>
+              </div>
+              <nav aria-label="v0.1.0-build.96.1.c0a4ec42daaf release links">
+                <a href="v0.1.0-build.96.1.c0a4ec42daaf/">Downloads</a>
+                <a href="v0.1.0-build.96.1.c0a4ec42daaf/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.96.1.c0a4ec42daaf/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.96.1.c0a4ec42daaf">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.95.1.608ed9720c6c/">v0.1.0-build.95.1.608ed9720c6c</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 9:01 AM UTC - 608ed9720c6c</p>
+              </div>
+              <nav aria-label="v0.1.0-build.95.1.608ed9720c6c release links">
+                <a href="v0.1.0-build.95.1.608ed9720c6c/">Downloads</a>
+                <a href="v0.1.0-build.95.1.608ed9720c6c/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.95.1.608ed9720c6c/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.95.1.608ed9720c6c">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.94.1.82d09ac9cd78/">v0.1.0-build.94.1.82d09ac9cd78</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 8:52 AM UTC - 82d09ac9cd78</p>
+              </div>
+              <nav aria-label="v0.1.0-build.94.1.82d09ac9cd78 release links">
+                <a href="v0.1.0-build.94.1.82d09ac9cd78/">Downloads</a>
+                <a href="v0.1.0-build.94.1.82d09ac9cd78/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.94.1.82d09ac9cd78/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.94.1.82d09ac9cd78">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.93.1.bb8dcafd1b65/">v0.1.0-build.93.1.bb8dcafd1b65</a></h3>
+                <p>Version 0.1.0 - Jul 12, 2026, 8:41 AM UTC - bb8dcafd1b65</p>
+              </div>
+              <nav aria-label="v0.1.0-build.93.1.bb8dcafd1b65 release links">
+                <a href="v0.1.0-build.93.1.bb8dcafd1b65/">Downloads</a>
+                <a href="v0.1.0-build.93.1.bb8dcafd1b65/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.93.1.bb8dcafd1b65/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.93.1.bb8dcafd1b65">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.90.1.212824e50c56/">v0.1.0-build.90.1.212824e50c56</a></h3>
+                <p>Version 0.1.0 - Jul 11, 2026, 3:00 PM UTC - 212824e50c56</p>
+              </div>
+              <nav aria-label="v0.1.0-build.90.1.212824e50c56 release links">
+                <a href="v0.1.0-build.90.1.212824e50c56/">Downloads</a>
+                <a href="v0.1.0-build.90.1.212824e50c56/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.90.1.212824e50c56/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.90.1.212824e50c56">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.89.1.99323a986824/">v0.1.0-build.89.1.99323a986824</a></h3>
+                <p>Version 0.1.0 - Jul 11, 2026, 2:41 PM UTC - 99323a986824</p>
+              </div>
+              <nav aria-label="v0.1.0-build.89.1.99323a986824 release links">
+                <a href="v0.1.0-build.89.1.99323a986824/">Downloads</a>
+                <a href="v0.1.0-build.89.1.99323a986824/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.89.1.99323a986824/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.89.1.99323a986824">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.88.1.23b694e8cc7e/">v0.1.0-build.88.1.23b694e8cc7e</a></h3>
+                <p>Version 0.1.0 - Jul 10, 2026, 8:23 PM UTC - 23b694e8cc7e</p>
+              </div>
+              <nav aria-label="v0.1.0-build.88.1.23b694e8cc7e release links">
+                <a href="v0.1.0-build.88.1.23b694e8cc7e/">Downloads</a>
+                <a href="v0.1.0-build.88.1.23b694e8cc7e/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.88.1.23b694e8cc7e/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.88.1.23b694e8cc7e">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.87.1.4fe548975b44/">v0.1.0-build.87.1.4fe548975b44</a></h3>
+                <p>Version 0.1.0 - Jul 10, 2026, 7:22 PM UTC - 4fe548975b44</p>
+              </div>
+              <nav aria-label="v0.1.0-build.87.1.4fe548975b44 release links">
+                <a href="v0.1.0-build.87.1.4fe548975b44/">Downloads</a>
+                <a href="v0.1.0-build.87.1.4fe548975b44/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.87.1.4fe548975b44/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.87.1.4fe548975b44">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.86.1.b7ee17fee2d8/">v0.1.0-build.86.1.b7ee17fee2d8</a></h3>
+                <p>Version 0.1.0 - Jul 10, 2026, 2:39 PM UTC - b7ee17fee2d8</p>
+              </div>
+              <nav aria-label="v0.1.0-build.86.1.b7ee17fee2d8 release links">
+                <a href="v0.1.0-build.86.1.b7ee17fee2d8/">Downloads</a>
+                <a href="v0.1.0-build.86.1.b7ee17fee2d8/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.86.1.b7ee17fee2d8/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.86.1.b7ee17fee2d8">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.85.1.3b6df56adb66/">v0.1.0-build.85.1.3b6df56adb66</a></h3>
+                <p>Version 0.1.0 - Jul 10, 2026, 2:29 PM UTC - 3b6df56adb66</p>
+              </div>
+              <nav aria-label="v0.1.0-build.85.1.3b6df56adb66 release links">
+                <a href="v0.1.0-build.85.1.3b6df56adb66/">Downloads</a>
+                <a href="v0.1.0-build.85.1.3b6df56adb66/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.85.1.3b6df56adb66/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.85.1.3b6df56adb66">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.83.1.cba4ea834b54/">v0.1.0-build.83.1.cba4ea834b54</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 8:17 PM UTC - cba4ea834b54</p>
+              </div>
+              <nav aria-label="v0.1.0-build.83.1.cba4ea834b54 release links">
+                <a href="v0.1.0-build.83.1.cba4ea834b54/">Downloads</a>
+                <a href="v0.1.0-build.83.1.cba4ea834b54/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.83.1.cba4ea834b54/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.83.1.cba4ea834b54">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.82.1.49f16b07865c/">v0.1.0-build.82.1.49f16b07865c</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 7:12 PM UTC - 49f16b07865c</p>
+              </div>
+              <nav aria-label="v0.1.0-build.82.1.49f16b07865c release links">
+                <a href="v0.1.0-build.82.1.49f16b07865c/">Downloads</a>
+                <a href="v0.1.0-build.82.1.49f16b07865c/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.82.1.49f16b07865c/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.82.1.49f16b07865c">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.81.1.74c18ff86be9/">v0.1.0-build.81.1.74c18ff86be9</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 6:23 PM UTC - 74c18ff86be9</p>
+              </div>
+              <nav aria-label="v0.1.0-build.81.1.74c18ff86be9 release links">
+                <a href="v0.1.0-build.81.1.74c18ff86be9/">Downloads</a>
+                <a href="v0.1.0-build.81.1.74c18ff86be9/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.81.1.74c18ff86be9/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.81.1.74c18ff86be9">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.80.1.252adabf390d/">v0.1.0-build.80.1.252adabf390d</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 6:04 PM UTC - 252adabf390d</p>
+              </div>
+              <nav aria-label="v0.1.0-build.80.1.252adabf390d release links">
+                <a href="v0.1.0-build.80.1.252adabf390d/">Downloads</a>
+                <a href="v0.1.0-build.80.1.252adabf390d/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.80.1.252adabf390d/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.80.1.252adabf390d">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.79.1.1c08eb4ee73d/">v0.1.0-build.79.1.1c08eb4ee73d</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 2:45 PM UTC - 1c08eb4ee73d</p>
+              </div>
+              <nav aria-label="v0.1.0-build.79.1.1c08eb4ee73d release links">
+                <a href="v0.1.0-build.79.1.1c08eb4ee73d/">Downloads</a>
+                <a href="v0.1.0-build.79.1.1c08eb4ee73d/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.79.1.1c08eb4ee73d/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.79.1.1c08eb4ee73d">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.78.1.f8b95401fcc1/">v0.1.0-build.78.1.f8b95401fcc1</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 2:29 PM UTC - f8b95401fcc1</p>
+              </div>
+              <nav aria-label="v0.1.0-build.78.1.f8b95401fcc1 release links">
+                <a href="v0.1.0-build.78.1.f8b95401fcc1/">Downloads</a>
+                <a href="v0.1.0-build.78.1.f8b95401fcc1/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.78.1.f8b95401fcc1/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.78.1.f8b95401fcc1">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.77.1.5ffa3e3d3305/">v0.1.0-build.77.1.5ffa3e3d3305</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 2:14 PM UTC - 5ffa3e3d3305</p>
+              </div>
+              <nav aria-label="v0.1.0-build.77.1.5ffa3e3d3305 release links">
+                <a href="v0.1.0-build.77.1.5ffa3e3d3305/">Downloads</a>
+                <a href="v0.1.0-build.77.1.5ffa3e3d3305/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.77.1.5ffa3e3d3305/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.77.1.5ffa3e3d3305">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.75.1.35fe4c2d7856/">v0.1.0-build.75.1.35fe4c2d7856</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 1:01 PM UTC - 35fe4c2d7856</p>
+              </div>
+              <nav aria-label="v0.1.0-build.75.1.35fe4c2d7856 release links">
+                <a href="v0.1.0-build.75.1.35fe4c2d7856/">Downloads</a>
+                <a href="v0.1.0-build.75.1.35fe4c2d7856/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.75.1.35fe4c2d7856/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.75.1.35fe4c2d7856">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.74.1.27a8c12e05ea/">v0.1.0-build.74.1.27a8c12e05ea</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 12:47 PM UTC - 27a8c12e05ea</p>
+              </div>
+              <nav aria-label="v0.1.0-build.74.1.27a8c12e05ea release links">
+                <a href="v0.1.0-build.74.1.27a8c12e05ea/">Downloads</a>
+                <a href="v0.1.0-build.74.1.27a8c12e05ea/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.74.1.27a8c12e05ea/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.74.1.27a8c12e05ea">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.73.1.32a0192ff21d/">v0.1.0-build.73.1.32a0192ff21d</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 12:38 PM UTC - 32a0192ff21d</p>
+              </div>
+              <nav aria-label="v0.1.0-build.73.1.32a0192ff21d release links">
+                <a href="v0.1.0-build.73.1.32a0192ff21d/">Downloads</a>
+                <a href="v0.1.0-build.73.1.32a0192ff21d/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.73.1.32a0192ff21d/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.73.1.32a0192ff21d">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.72.1.5562506b8209/">v0.1.0-build.72.1.5562506b8209</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 12:02 PM UTC - 5562506b8209</p>
+              </div>
+              <nav aria-label="v0.1.0-build.72.1.5562506b8209 release links">
+                <a href="v0.1.0-build.72.1.5562506b8209/">Downloads</a>
+                <a href="v0.1.0-build.72.1.5562506b8209/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.72.1.5562506b8209/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.72.1.5562506b8209">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.71.1.b0932ffd480b/">v0.1.0-build.71.1.b0932ffd480b</a></h3>
+                <p>Version 0.1.0 - Jul 5, 2026, 9:21 AM UTC - b0932ffd480b</p>
+              </div>
+              <nav aria-label="v0.1.0-build.71.1.b0932ffd480b release links">
+                <a href="v0.1.0-build.71.1.b0932ffd480b/">Downloads</a>
+                <a href="v0.1.0-build.71.1.b0932ffd480b/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.71.1.b0932ffd480b/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.71.1.b0932ffd480b">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.70.1.afa1c4db8ca4/">v0.1.0-build.70.1.afa1c4db8ca4</a></h3>
+                <p>Version 0.1.0 - Jul 3, 2026, 6:19 PM UTC - afa1c4db8ca4</p>
+              </div>
+              <nav aria-label="v0.1.0-build.70.1.afa1c4db8ca4 release links">
+                <a href="v0.1.0-build.70.1.afa1c4db8ca4/">Downloads</a>
+                <a href="v0.1.0-build.70.1.afa1c4db8ca4/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.70.1.afa1c4db8ca4/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.70.1.afa1c4db8ca4">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.69.1.2b3d5b221f94/">v0.1.0-build.69.1.2b3d5b221f94</a></h3>
+                <p>Version 0.1.0 - Jul 3, 2026, 6:10 PM UTC - 2b3d5b221f94</p>
+              </div>
+              <nav aria-label="v0.1.0-build.69.1.2b3d5b221f94 release links">
+                <a href="v0.1.0-build.69.1.2b3d5b221f94/">Downloads</a>
+                <a href="v0.1.0-build.69.1.2b3d5b221f94/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.69.1.2b3d5b221f94/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.69.1.2b3d5b221f94">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.68.1.2a2baaa0f899/">v0.1.0-build.68.1.2a2baaa0f899</a></h3>
+                <p>Version 0.1.0 - Jul 3, 2026, 5:52 PM UTC - 2a2baaa0f899</p>
+              </div>
+              <nav aria-label="v0.1.0-build.68.1.2a2baaa0f899 release links">
+                <a href="v0.1.0-build.68.1.2a2baaa0f899/">Downloads</a>
+                <a href="v0.1.0-build.68.1.2a2baaa0f899/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.68.1.2a2baaa0f899/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.68.1.2a2baaa0f899">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.67.1.1ea9bc38254a/">v0.1.0-build.67.1.1ea9bc38254a</a></h3>
+                <p>Version 0.1.0 - Jul 3, 2026, 3:45 PM UTC - 1ea9bc38254a</p>
+              </div>
+              <nav aria-label="v0.1.0-build.67.1.1ea9bc38254a release links">
+                <a href="v0.1.0-build.67.1.1ea9bc38254a/">Downloads</a>
+                <a href="v0.1.0-build.67.1.1ea9bc38254a/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.67.1.1ea9bc38254a/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.67.1.1ea9bc38254a">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.65.1.45d6da4c11a6/">v0.1.0-build.65.1.45d6da4c11a6</a></h3>
+                <p>Version 0.1.0 - Jul 3, 2026, 2:06 PM UTC - 45d6da4c11a6</p>
+              </div>
+              <nav aria-label="v0.1.0-build.65.1.45d6da4c11a6 release links">
+                <a href="v0.1.0-build.65.1.45d6da4c11a6/">Downloads</a>
+                <a href="v0.1.0-build.65.1.45d6da4c11a6/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.65.1.45d6da4c11a6/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.65.1.45d6da4c11a6">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0-build.64.1.41796821bd0b/">v0.1.0-build.64.1.41796821bd0b</a></h3>
+                <p>Version 0.1.0 - Jul 3, 2026, 1:45 PM UTC - 41796821bd0b</p>
+              </div>
+              <nav aria-label="v0.1.0-build.64.1.41796821bd0b release links">
+                <a href="v0.1.0-build.64.1.41796821bd0b/">Downloads</a>
+                <a href="v0.1.0-build.64.1.41796821bd0b/manifest.json">Manifest</a>
+                <a href="v0.1.0-build.64.1.41796821bd0b/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0-build.64.1.41796821bd0b">GitHub</a>
+              </nav>
+            </article>
+            <article class="release-item">
+              <div>
+                <h3><a href="v0.1.0/">v0.1.0</a></h3>
+                <p>Version 0.1.0 - Jul 2, 2026, 3:06 PM UTC - 8839db3b8cef</p>
+              </div>
+              <nav aria-label="v0.1.0 release links">
+                <a href="v0.1.0/">Downloads</a>
+                <a href="v0.1.0/manifest.json">Manifest</a>
+                <a href="v0.1.0/SHA256SUMS.txt">Checksums</a>
+                <a href="https://github.com/latexdo/latexdo/releases/tag/v0.1.0">GitHub</a>
+              </nav>
+            </article>
+            </div>
+          </details>
+          </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../" aria-label="LatexDo home">
+            <img src="../assets/icon.svg" alt="" width="28" height="28" />
+            <span>LatexDo</span>
+          </a>
+          <p>Modern LaTeX editing across web and desktop.</p>
+        </div>
+        <div>
+          <h5>Individuals</h5>
+          <nav aria-label="Individuals">
+            <a href="../downloads/">Desktop</a>
+            <a href="https://editor.latexdo.org">Editor</a>
+            <a href="https://docs.latexdo.org">Docs</a>
+            <a href="https://store.latexdo.org">Store</a>
+            <a href="/research/ai/">AI</a>
+          </nav>
+        </div>
+        <div>
+          <h5>Business</h5>
+          <nav aria-label="Business">
+            <span class="footer-static-link">Desktop Pro</span>
+            <span class="footer-static-link">Editor Pro</span>
+            <span class="footer-static-link">Docs Pro</span>
+            <span class="footer-static-link">Store Pro</span>
+            <span class="footer-static-link">AI Pro</span>
+          </nav>
+        </div>
+        <div>
+          <h5>Research</h5>
+          <nav aria-label="Research">
+            <a href="/research/compiler/">Compiler</a>
+            <a href="/research/knowledge-graph/">Knowledge Graph</a>
+            <a href="https://benchmarks.latexdo.org">Benchmarks</a>
+            <a href="/research/ai/">AI</a>
+          </nav>
+        </div>
+        <div>
+          <h5>Organization</h5>
+          <nav aria-label="Organization">
+            <a href="../about/">About</a>
+            <a href="../privacy.html">Privacy</a>
+            <a href="../terms.html">Terms</a>
+            <a href="mailto:contact@latexdo.org">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <nav aria-label="Community">
+            <a href="https://github.com/latexdo/latexdo">Source</a>
+            <a href="../donations/">Donate</a>
+            <a href="https://linkedin.com/company/latexdo">LinkedIn</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; <span id="copyright-year"></span> LatexDo. <a href="https://opensource.org/license/mit">MIT License</a>.</span>
+          <nav class="language-switcher footer-language-switcher" aria-label="Languages" data-language-switcher="footer">
+            <button class="language-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Languages, current language: English"><span class="language-globe" aria-hidden="true">🌐</span><span class="language-current">EN</span></button>
+            <ul class="language-list">
+              <li class="language-item"><a class="language-option" href="/" hreflang="en-US" lang="en-US" aria-current="true" aria-label="Switch to English"><span class="language-flag" aria-hidden="true">🇺🇸</span><span class="language-code">EN</span><span class="language-name">English</span></a></li>
+              <li class="language-item"><a class="language-option" href="/fr/" hreflang="fr-FR" lang="fr-FR" aria-label="Switch to Français"><span class="language-flag" aria-hidden="true">🇫🇷</span><span class="language-code">FR</span><span class="language-name">Français</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../assets/site.js"></script>
+  </body>
+</html>

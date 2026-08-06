@@ -1,0 +1,3 @@
+d153d487681ed9f5b465729abb845fa3ced57f0af2c47cd5ce3e3f30928c47db  LatexDo-macos-arm64.dmg
+9c73ff7cacd89309bc11b572ddfd06d621f5f1c0b7ced3d7e4534a7019407ee7  LatexDo-macos-x64.dmg
+9d05c80226ff58fa6a0f8eb7f1513335d91f438d4e88f7280db6efd101cee7d5  LatexDo-windows-x64.exe

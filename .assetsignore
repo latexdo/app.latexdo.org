@@ -1,0 +1,17 @@
+*
+!/.nojekyll
+!/CNAME
+!/README.md
+!/_headers
+!/_redirects
+!/assets/
+!/assets/**
+!/downloads/
+!/downloads/**
+!/index.html
+!/robots.txt
+!/sitemap.xml
+!/site.webmanifest
+!/style.css
+!/updates/
+!/updates/**

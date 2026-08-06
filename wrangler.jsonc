@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "app-latexdo-org",
+  "compatibility_date": "2026-06-27",
+  "assets": {
+    "directory": "."
+  }
+}
