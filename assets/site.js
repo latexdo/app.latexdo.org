@@ -1045,22 +1045,29 @@ function initTheme() {
     });
 }
 async function loadFooterIncludes() {
-    const placeholders = queryAll("[data-footer-src]");
-    if (!placeholders.length)
-        return;
-    await Promise.all(placeholders.map(async (placeholder) => {
-        const source = placeholder.dataset.footerSrc || "/partials/footer.html";
-        try {
-            const response = await fetch(source);
-            if (!response.ok)
-                throw new Error(`Footer include returned ${response.status}`);
-            const footerHtml = (await response.text()).trim();
-            placeholder.outerHTML = footerHtml;
+  const placeholders = Array.from(document.querySelectorAll("[data-footer-src]"));
+  if (!placeholders.length) return;
+
+  await Promise.all(placeholders.map(async (placeholder) => {
+    const source = placeholder.dataset.footerSrc || "/partials/footer.html";
+    const fallbackSource = source.endsWith(".html")
+      ? source.slice(0, -".html".length)
+      : `${source}.html`;
+
+    for (const candidate of [source, fallbackSource]) {
+      try {
+        const response = await fetch(candidate);
+        if (!response.ok) continue;
+        const footerHtml = (await response.text()).trim();
+        if (footerHtml.includes('class="site-footer"')) {
+          placeholder.outerHTML = footerHtml;
+          return;
         }
-        catch {
-            placeholder.hidden = true;
-        }
-    }));
+      } catch {
+        // Keep the placeholder in the page; a later candidate may still work.
+      }
+    }
+  }));
 }
 function initFooter() {
     const year = new Date().getFullYear();
