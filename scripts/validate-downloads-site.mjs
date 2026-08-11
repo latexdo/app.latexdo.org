@@ -17,6 +17,7 @@ const requiredFiles = [
   "CNAME",
   "index.html",
   "package.json",
+  "partials/footer.html",
   "robots.txt",
   "sitemap.xml",
   "site.webmanifest",
@@ -31,6 +32,9 @@ const requiredDownloadIds = new Set([
   "windows-x64",
   "linux-x64",
 ]);
+const footerInclude = '<div data-footer-src="/partials/footer.html"></div>';
+const siteScript = '<script type="module" src="/assets/site.js"></script>';
+const copiedFooter = '<footer class="site-footer">';
 const forbiddenText = [
   `https://latexdo.org/${"downloads"}`,
   `https://latexdo.org/${"updates"}`,
@@ -47,6 +51,23 @@ async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
 }
 
+async function listHtmlFiles(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      if (![".git", ".wrangler", "node_modules"].includes(entry.name)) {
+        files.push(...(await listHtmlFiles(path.join(directory, entry.name))));
+      }
+      continue;
+    }
+    if (entry.isFile() && entry.name.endsWith(".html")) {
+      files.push(path.join(directory, entry.name));
+    }
+  }
+  return files;
+}
+
 async function pathExists(relativePath) {
   try {
     await stat(path.join(root, relativePath));
@@ -56,8 +77,42 @@ async function pathExists(relativePath) {
   }
 }
 
+async function assertFooterIncludes() {
+  const footerPartial = await readFile(path.join(root, "partials/footer.html"), "utf8");
+  assert(
+    countOccurrences(footerPartial, copiedFooter) === 1,
+    "partials/footer.html must contain exactly one site footer.",
+  );
+  assert(
+    !footerPartial.includes(footerInclude),
+    "partials/footer.html must not include itself.",
+  );
+
+  for (const file of await listHtmlFiles(root)) {
+    const relativePath = path.relative(root, file);
+    if (relativePath === "partials/footer.html") continue;
+    const html = await readFile(file, "utf8");
+    assert(
+      !html.includes(copiedFooter),
+      `${relativePath} must use partials/footer.html instead of copying the footer.`,
+    );
+    assert(
+      countOccurrences(html, footerInclude) === 1,
+      `${relativePath} must include partials/footer.html exactly once.`,
+    );
+    assert(
+      countOccurrences(html, siteScript) === 1,
+      `${relativePath} must load assets/site.js exactly once.`,
+    );
+  }
+}
+
 function assertContains(text, needle, label) {
   assert(text.includes(needle), `${label} is missing: ${needle}`);
+}
+
+function countOccurrences(text, needle) {
+  return text.split(needle).length - 1;
 }
 
 function parseAppUrl(value, label, expectedPrefix) {
@@ -340,6 +395,7 @@ async function assertNoForbiddenHosts() {
 }
 
 await assertStaticShape();
+await assertFooterIncludes();
 updatePublicKey = createPublicKey(
   await readFile(path.join(root, "update-public-key.pem"), "utf8"),
 );

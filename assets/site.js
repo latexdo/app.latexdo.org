@@ -120,6 +120,18 @@ const siteIconPaths = {
     Source: `<circle cx="6" cy="6" r="2" /><circle cx="18" cy="18" r="2" /><circle cx="6" cy="18" r="2" /><path d="M6 8v8" /><path d="M8 18h6a4 4 0 0 0 4-4V8" />`,
     Donate: `<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" />`,
     LinkedIn: `<rect x="4" y="4" width="16" height="16" rx="2" /><path d="M8 11v5" /><path d="M8 8h.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 0 0-4 0" />`,
+    Programs: `<path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /><path d="M8 5v14" /><path d="M16 5v14" />`,
+    Mission: `<path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /><path d="M8 5v14" /><path d="M16 5v14" />`,
+    Documentation: `<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z" /><path d="M8 7h8" /><path d="M8 11h8" />`,
+    Vision: `<circle cx="12" cy="12" r="3" /><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />`,
+    Board: `<circle cx="9" cy="8" r="3" /><circle cx="17" cy="10" r="2.5" /><path d="M3.5 20a5.5 5.5 0 0 1 11 0" /><path d="M14 20a4.5 4.5 0 0 1 7 0" />`,
+    "Code of Conduct": `<path d="M12 3 5 6v5c0 4.5 2.9 8.4 7 10 4.1-1.6 7-5.5 7-10V6l-7-3Z" /><path d="m9 12 2 2 4-5" />`,
+    Transparency: `<path d="M4 19V5" /><path d="M4 19h16" /><rect x="7" y="11" width="3" height="5" rx="1" /><rect x="12" y="8" width="3" height="8" rx="1" /><rect x="17" y="6" width="3" height="10" rx="1" />`,
+    Donations: `<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" />`,
+    Expenses: `<path d="M4 19V5" /><path d="M4 19h16" /><rect x="7" y="11" width="3" height="5" rx="1" /><rect x="12" y="8" width="3" height="8" rx="1" /><rect x="17" y="6" width="3" height="10" rx="1" />`,
+    "Source code": `<circle cx="6" cy="6" r="2" /><circle cx="18" cy="18" r="2" /><circle cx="6" cy="18" r="2" /><path d="M6 8v8" /><path d="M8 18h6a4 4 0 0 0 4-4V8" />`,
+    "Privacy Policies": `<rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />`,
+    "Terms of Use": `<path d="M7 3h7l4 4v14H7V3Z" /><path d="M14 3v5h5" /><path d="M10 12h6" /><path d="M10 16h6" />`,
 };
 function getSiteIconPath(label) {
     const baseLabel = label.replace(/\s+Pro$/, "");
@@ -1031,6 +1043,24 @@ function initTheme() {
         }
     });
 }
+async function loadFooterIncludes() {
+    const placeholders = queryAll("[data-footer-src]");
+    if (!placeholders.length)
+        return;
+    await Promise.all(placeholders.map(async (placeholder) => {
+        const source = placeholder.dataset.footerSrc || "/partials/footer.html";
+        try {
+            const response = await fetch(source);
+            if (!response.ok)
+                throw new Error(`Footer include returned ${response.status}`);
+            const footerHtml = (await response.text()).trim();
+            placeholder.outerHTML = footerHtml;
+        }
+        catch {
+            placeholder.hidden = true;
+        }
+    }));
+}
 function initFooter() {
     const year = new Date().getFullYear();
     const el = document.querySelector("#copyright") ?? document.querySelector("#copyright-year");
@@ -1051,8 +1081,9 @@ function initFooter() {
         link.prepend(createSiteIcon("footer-link-icon", icon));
     });
 }
-function init() {
+async function init() {
     initNavigation();
+    await loadFooterIncludes();
     initLanguageSwitcher();
     initEditorPreviewNotice();
     initReveal();
