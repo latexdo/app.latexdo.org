@@ -160,6 +160,20 @@ svg {
   outline-offset: 2px;
 }
 
+.nav-links a.nav-preview-link {
+  border-color: rgb(15 111 255 / 18%);
+  background: rgb(15 111 255 / 9%);
+  color: var(--blue-strong, #004ec2);
+  font-weight: 760;
+}
+
+.nav-links a.nav-preview-link:hover,
+.nav-links a.nav-preview-link:focus-visible {
+  border-color: var(--blue, #0f6fff);
+  background: var(--blue, #0f6fff);
+  color: #fff;
+}
+
 .header-link-icon {
   width: 16px;
   height: 16px;
@@ -3087,6 +3101,20 @@ img.platform-logo {
   outline-offset: 2px;
 }
 
+.nav-links a.nav-preview-link {
+  border-color: rgb(15 111 255 / 18%);
+  background: rgb(15 111 255 / 9%);
+  color: var(--blue-strong, #004ec2);
+  font-weight: 760;
+}
+
+.nav-links a.nav-preview-link:hover,
+.nav-links a.nav-preview-link:focus-visible {
+  border-color: var(--blue, #0f6fff);
+  background: var(--blue, #0f6fff);
+  color: #fff;
+}
+
 .header-link-icon {
   width: 16px;
   height: 16px;
@@ -3465,6 +3493,10 @@ span.footer-social-link {
 
   .nav-links a {
     padding: 12px;
+  }
+
+  .nav-links a.nav-preview-link {
+    justify-content: center;
   }
 
   .nav-donate-link {
