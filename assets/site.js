@@ -131,6 +131,7 @@ const siteIconPaths = {
     Donations: `<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" />`,
     Expenses: `<path d="M4 19V5" /><path d="M4 19h16" /><rect x="7" y="11" width="3" height="5" rx="1" /><rect x="12" y="8" width="3" height="8" rx="1" /><rect x="17" y="6" width="3" height="10" rx="1" />`,
     "Source code": `<circle cx="6" cy="6" r="2" /><circle cx="18" cy="18" r="2" /><circle cx="6" cy="18" r="2" /><path d="M6 8v8" /><path d="M8 18h6a4 4 0 0 0 4-4V8" />`,
+    GitHub: `<circle cx="6" cy="6" r="2" /><circle cx="18" cy="18" r="2" /><circle cx="6" cy="18" r="2" /><path d="M6 8v8" /><path d="M8 18h6a4 4 0 0 0 4-4V8" />`,
     "Privacy Policies": `<rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />`,
     "Terms of Use": `<path d="M7 3h7l4 4v14H7V3Z" /><path d="M14 3v5h5" /><path d="M10 12h6" /><path d="M10 16h6" />`,
 };
@@ -333,27 +334,9 @@ function initLanguageSwitcher() {
     const currentLanguage = getCurrentSiteLanguage();
     document.documentElement.lang = currentLanguage.hreflang;
     queryAll("[data-language-switcher]").forEach((switcher) => {
-        const navShell = query(".nav-shell");
-        if (switcher.dataset.languageSwitcher === "header" &&
-            switcher.closest("[data-nav-links]") &&
-            navShell) {
-            navShell.append(switcher);
-        }
         renderLanguageSwitcher(switcher, switcher.dataset.languageSwitcher === "footer" ? "footer" : "header");
         bindLanguageSwitcher(switcher);
     });
-    const navShell = query(".nav-shell");
-    if (navShell && !navShell.querySelector(".header-language-switcher")) {
-        const switcher = createLanguageSwitcher("header");
-        navShell.append(switcher);
-        bindLanguageSwitcher(switcher);
-    }
-    const footerBottom = query(".footer-bottom");
-    if (footerBottom && !footerBottom.querySelector(".footer-language-switcher")) {
-        const switcher = createLanguageSwitcher("footer");
-        footerBottom.append(switcher);
-        bindLanguageSwitcher(switcher);
-    }
     document.addEventListener("click", (event) => {
         if (event.target.closest(".language-switcher"))
             return;
@@ -1044,30 +1027,84 @@ function initTheme() {
         }
     });
 }
-async function loadFooterIncludes() {
-  const placeholders = Array.from(document.querySelectorAll("[data-footer-src]"));
+async function loadHtmlIncludes(sourceAttribute, defaultSource, requiredHtml) {
+  const placeholders = queryAll("[" + sourceAttribute + "]");
   if (!placeholders.length) return;
 
-  await Promise.all(placeholders.map(async (placeholder) => {
-    const source = placeholder.dataset.footerSrc || "/partials/footer.html";
-    const fallbackSource = source.endsWith(".html")
-      ? source.slice(0, -".html".length)
-      : `${source}.html`;
+  await Promise.all(
+    placeholders.map(async (placeholder) => {
+      const source = placeholder.getAttribute(sourceAttribute) || defaultSource;
+      const fallbackSource = source.endsWith(".html")
+        ? source.slice(0, -".html".length)
+        : source + ".html";
 
-    for (const candidate of [source, fallbackSource]) {
-      try {
-        const response = await fetch(candidate);
-        if (!response.ok) continue;
-        const footerHtml = (await response.text()).trim();
-        if (footerHtml.includes('class="site-footer"')) {
-          placeholder.outerHTML = footerHtml;
-          return;
+      for (const candidate of [source, fallbackSource]) {
+        try {
+          const response = await fetch(candidate);
+          if (!response.ok) continue;
+          const includeHtml = (await response.text()).trim();
+          if (includeHtml.includes(requiredHtml)) {
+            placeholder.outerHTML = includeHtml;
+            return;
+          }
+        } catch {
+          // Keep the placeholder in the page; a later candidate may still work.
         }
-      } catch {
-        // Keep the placeholder in the page; a later candidate may still work.
       }
+    }),
+  );
+}
+
+function loadHeaderIncludes() {
+  return loadHtmlIncludes("data-header-src", "/partials/header.html", 'class="site-header"');
+}
+
+function loadFooterIncludes() {
+  return loadHtmlIncludes("data-footer-src", "/partials/footer.html", 'class="site-footer"');
+}
+function initDonationModal() {
+  const modal = query("[data-donate-modal]");
+  if (!modal) return;
+
+  const iframe = modal.querySelector("#haWidgetLight");
+  const openers = queryAll("[data-donate-open]");
+  let lastFocused = null;
+
+  const isOpen = () => !modal.hasAttribute("hidden");
+
+  const setWidgetSource = (opener) => {
+    if (!iframe) return;
+    const requested = opener.dataset.haSrc || iframe.dataset.haSrc;
+    if (requested && iframe.getAttribute("src") !== requested) {
+      iframe.removeAttribute("height");
+      iframe.src = requested;
     }
-  }));
+  };
+
+  const openModal = (opener) => {
+    lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    modal.removeAttribute("hidden");
+    document.body.classList.add("donate-modal-open");
+    setWidgetSource(opener);
+    modal.querySelector(".donate-modal-close")?.focus();
+  };
+
+  const closeModal = () => {
+    modal.setAttribute("hidden", "");
+    document.body.classList.remove("donate-modal-open");
+    lastFocused?.focus();
+  };
+
+  openers.forEach((button) =>
+    button.addEventListener("click", () => openModal(button)),
+  );
+  Array.from(modal.querySelectorAll("[data-donate-close]")).forEach((closer) =>
+    closer.addEventListener("click", closeModal),
+  );
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isOpen()) closeModal();
+  });
 }
 function initFooter() {
     const year = new Date().getFullYear();
@@ -1090,6 +1127,8 @@ function initFooter() {
     });
 }
 async function init() {
+    await loadHeaderIncludes();
+    initDonationModal();
     initNavigation();
     await loadFooterIncludes();
     initLanguageSwitcher();

@@ -7,6 +7,10 @@
   "scripts": {
     "build": "npm run ci",
     "ci": "node scripts/validate-downloads-site.mjs",
+    "dev": "node scripts/dev.mjs",
     "test": "npm run ci"
+  },
+  "devDependencies": {
+    "wrangler": "^4.127.0"
   }
 }

@@ -17,6 +17,7 @@ const requiredFiles = [
   "CNAME",
   "index.html",
   "package.json",
+  "partials/header.html",
   "partials/footer.html",
   "robots.txt",
   "sitemap.xml",
@@ -32,8 +33,10 @@ const requiredDownloadIds = new Set([
   "windows-x64",
   "linux-x64",
 ]);
+const headerInclude = '<div data-header-src="/partials/header.html"></div>';
 const footerInclude = '<div data-footer-src="/partials/footer.html"></div>';
 const siteScript = '<script type="module" src="/assets/site.js"></script>';
+const copiedHeader = '<header class="site-header"';
 const copiedFooter = '<footer class="site-footer">';
 const forbiddenText = [
   `https://latexdo.org/${"downloads"}`,
@@ -77,8 +80,17 @@ async function pathExists(relativePath) {
   }
 }
 
-async function assertFooterIncludes() {
+async function assertShellIncludes() {
+  const headerPartial = await readFile(path.join(root, "partials/header.html"), "utf8");
   const footerPartial = await readFile(path.join(root, "partials/footer.html"), "utf8");
+  assert(
+    countOccurrences(headerPartial, copiedHeader) === 1,
+    "partials/header.html must contain exactly one site header.",
+  );
+  assert(
+    !headerPartial.includes(headerInclude),
+    "partials/header.html must not include itself.",
+  );
   assert(
     countOccurrences(footerPartial, copiedFooter) === 1,
     "partials/footer.html must contain exactly one site footer.",
@@ -90,11 +102,19 @@ async function assertFooterIncludes() {
 
   for (const file of await listHtmlFiles(root)) {
     const relativePath = path.relative(root, file);
-    if (relativePath === "partials/footer.html") continue;
+    if (relativePath === "partials/header.html" || relativePath === "partials/footer.html") continue;
     const html = await readFile(file, "utf8");
+    assert(
+      !html.includes(copiedHeader),
+      `${relativePath} must use partials/header.html instead of copying the header.`,
+    );
     assert(
       !html.includes(copiedFooter),
       `${relativePath} must use partials/footer.html instead of copying the footer.`,
+    );
+    assert(
+      countOccurrences(html, headerInclude) === 1,
+      `${relativePath} must include partials/header.html exactly once.`,
     );
     assert(
       countOccurrences(html, footerInclude) === 1,
@@ -395,7 +415,7 @@ async function assertNoForbiddenHosts() {
 }
 
 await assertStaticShape();
-await assertFooterIncludes();
+await assertShellIncludes();
 updatePublicKey = createPublicKey(
   await readFile(path.join(root, "update-public-key.pem"), "utf8"),
 );
